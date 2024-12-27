@@ -1,0 +1,89 @@
+/* Base Styles */
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Security Assurance Section */
+.security-assurance {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.security-assurance img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.security-assurance p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #f8f9fa;
+}
+
+.container.dark-mode {
+    background-color: #444;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1.dark-mode, h2.dark-mode {
+    color: #f8f9fa;
+}
+
+.btn.dark-mode {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+.btn.dark-mode:hover {
+    background-color: #e0e0e0;
+}
+
+/* Transition for Smooth Dark Mode Switch */
+body, .container, h1, h2 {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

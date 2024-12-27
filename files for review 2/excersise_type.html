@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Mode - Meditation & Mindfulness Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #eef2f3;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .card-header {
+            background-color: #6c757d;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        .btn-custom {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.1em;
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #5a6268;
+        }
+        h3, h2 {
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Meditation Mode</h2>
+        <div id="message"></div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>Select Meditation Mode</h3>
+            </div>
+            <div class="card-body">
+                <form action="set_meditation_mode" method="post">
+                    <div class="form-group">
+                        <label for="meditation_type">Meditation Type:</label>
+                        <select class="form-control" id="meditation_type" name="meditation_type" required>
+                            <option value="guided">Guided Meditation</option>
+                            <option value="silent">Silent Meditation</option>
+                            <option value="mindfulness">Mindfulness Practice</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="start_time">Start Time:</label>
+                        <input type="datetime-local" class="form-control" id="start_time" name="start_time">
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration (minutes):</label>
+                        <input type="number" class="form-control" id="duration" name="duration" placeholder="Enter duration in minutes" min="1">
+                    </div>
+                    <button type="submit" class="btn btn-custom">Set Meditation Mode</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/\[/, '\\[').replace(/\]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Display success or error message based on URL parameter
+        window.onload = function() {
+            var success = getUrlParameter('success');
+            var messageDiv = document.getElementById('message');
+            if (success === 'true') {
+                messageDiv.innerHTML = '<div class="alert alert-success">Meditation mode set successfully!</div>';
+            } else if (success === 'false') {
+                messageDiv.innerHTML = '<div class="alert alert-danger">Failed to set meditation mode. Please try again.</div>';
+            }
+        };
+    </script>
+</body>
+</html>
